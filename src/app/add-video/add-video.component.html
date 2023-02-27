@@ -1,0 +1,68 @@
+<form [formGroup]="videoForm" (ngSubmit)="onSubmit()">
+  <div class="formcontrol">
+    <div>
+      <label for="name">name</label>
+      <input type="text" id="name" formControlName="name" />
+    </div>
+    <div *ngIf="(f.name.invalid && f.name.dirty) || f.name.touched">
+      <p *ngIf="f.name.errors?.required">Name is required</p>
+      <p *ngIf="f.name.errors?.minlength">
+        Name must be at least
+        {{ f.name.errors?.minlength.requiredLength }}
+        characters long
+      </p>
+    </div>
+  </div>
+  <div class="formcontrol">
+    <div>
+      <label for="description">description</label>
+      <input type="text" id="description" formControlName="description" />
+    </div>
+    <div
+      *ngIf="
+        (f.description.invalid && f.description.dirty) || f.description.touched
+      "
+    >
+      <p *ngIf="f.description.errors?.required">Name is required</p>
+      <p *ngIf="f.description.errors?.minlength">
+        Name must be at least
+        {{ f.name.errors?.minlength.requiredLength }}
+        characters long
+      </p>
+    </div>
+  </div>
+  <div class="formcontrol">
+    <div>
+      <label for="url">url</label>
+      <input type="text" id="url" formControlName="url" />
+    </div>
+    <div *ngIf="(f.url.invalid && f.url.dirty) || f.url.touched">
+      <p *ngIf="f.url.errors?.required">url is required</p>
+      <p *ngIf="f.url.errors?.minlength">
+        url must be at least
+        {{ f.url.errors?.minlength.requiredLength }}
+        characters long
+      </p>
+    </div>
+  </div>
+  <div class="formcontrol">
+    <div>
+      <label for="view_number">view_number</label>
+      <input type="number" id="view_number" formControlName="view_number" />
+    </div>
+    <div
+      *ngIf="
+        (f.view_number.invalid && f.view_number.dirty) || f.view_number.touched
+      "
+    >
+      <p *ngIf="f.view_number.errors?.required">view_number is required</p>
+      <p *ngIf="f.view_number.errors?.minlength">
+        view_number must be at least
+        {{ f.view_number.errors?.minlength.requiredLength }}
+        characters long
+      </p>
+    </div>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>

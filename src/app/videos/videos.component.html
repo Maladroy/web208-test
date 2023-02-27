@@ -1,0 +1,25 @@
+<a routerLink="/videos/add">Them video</a>
+<table>
+  <thead>
+    <th>ID</th>
+    <th>name</th>
+    <th>description</th>
+    <th>image</th>
+    <th>url</th>
+    <th>view_number</th>
+    <th>actions</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let video of videos">
+      <td>{{ video._id }}</td>
+      <td>{{ video.name }}</td>
+      <td>{{ video.description }}</td>
+      <td>{{ video.url }}</td>
+      <td>{{ video.view_number }}</td>
+      <td>
+        <a routerLink="/videos/{{ video._id }}/edit">Edit</a>
+        <button (click)="deleteVideo(video._id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
